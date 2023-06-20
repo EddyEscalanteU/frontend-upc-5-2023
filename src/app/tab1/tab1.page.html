@@ -10,13 +10,17 @@
     <ion-item>
         <ion-input type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
         <div class="item-note" item-end>
-            <ion-button>Agregar Categoria</ion-button>
+            <ion-button (click)="addCategoria()">Agregar Categoria</ion-button>
         </div>
     </ion-item>
     <div padding>
         <ion-list>
             <ion-item *ngFor="let item of listCategoria">
                 {{item.nombre}}
+                <div class="item-note" slot="end">
+                    <ion-button color="warning" (click)="updateCategoria(item)">Editar</ion-button>
+                    <ion-button color="danger" (click)="deleteCategoria(item)">Eliminar</ion-button>
+                </div>
             </ion-item>
         </ion-list>
     </div>
