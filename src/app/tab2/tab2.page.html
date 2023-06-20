@@ -1,29 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Photo Gallery
+      CRUD Usuarios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Photo Gallery</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-grid>
-    <ion-row>
-    <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-      <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, position)"></ion-img>
-    </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="photoService.addNewToGallery()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<ion-content padding>
+  <ion-item>
+      <ion-input type="text" placeholder="Ingrese nombreCompleto" [(ngModel)]="nombreCompleto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese userName" [(ngModel)]="userName"></ion-input>
+      <ion-input type="text" placeholder="Ingrese password" [(ngModel)]="password"></ion-input>
+      <div class="item-note" item-end>
+          <ion-button (click)="addUsuario()">Agregar Usuario</ion-button>
+      </div>
+  </ion-item>
+<div padding>
+    <ion-list>
+        <ion-item *ngFor="let item of listUsuarios">
+            {{item.nombreCompleto}}, {{item.userName}}, {{item.password}}
+            <div class="item-note" slot="end">
+                <ion-button color="warning" (click)="updateUsuario(item)">Editar</ion-button>
+                <ion-button color="danger" (click)="deleteUsuario(item)">Eliminar</ion-button>
+            </div>
+        </ion-item>
+    </ion-list>
+</div>
 </ion-content>

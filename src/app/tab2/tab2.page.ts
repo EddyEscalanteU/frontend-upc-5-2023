@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
-import { UserPhoto, PhotoService } from '../services/photo.service';
+import { UsuariosService } from '../servicios-backend/usuarios/usuarios.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab2',
@@ -9,31 +9,41 @@ import { UserPhoto, PhotoService } from '../services/photo.service';
 })
 export class Tab2Page {
 
-  constructor(public photoService: PhotoService, public actionSheetController: ActionSheetController) {}
+  public nombreCompleto = ""
+  public userName = ""
+  public password = ""
 
-  async ngOnInit() {
-    await this.photoService.loadSaved();
+public listUsuarios = [];
+
+  constructor(private usuariosService: UsuariosService) {
+    this.getUsuarios();
   }
 
-  public async showActionSheet(photo: UserPhoto, position: number) {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'Photos',
-      buttons: [{
-        text: 'Delete',
-        role: 'destructive',
-        icon: 'trash',
-        handler: () => {
-          this.photoService.deletePicture(photo, position);
-        }
-      }, {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-          // Nothing to do, action sheet is automatically closed
-         }
-      }]
+  private getUsuarios(){
+    this.usuariosService.GetUsuarios().subscribe({
+        next: (response: HttpResponse<any>) => {
+            this.listUsuarios = response.body;
+            console.log(this.listUsuarios)
+        },
+        error: (error: any) => {
+            console.log(error);
+        },
+        complete: () => {
+            console.log('complete - this.getUsuarios()');
+        },
     });
-    await actionSheet.present();
   }
+
+  public addUsuario(){
+
+  }
+
+  public updateUsuario(item){
+
+  }
+
+  public deleteUsuario(item){
+    
+  }
+
 }
