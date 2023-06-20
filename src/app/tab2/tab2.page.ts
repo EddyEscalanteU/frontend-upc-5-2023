@@ -35,8 +35,35 @@ public listUsuarios = [];
   }
 
   public addUsuario(){
-
-  }
+    if (this.nombreCompleto.length > 0 && this.userName.length > 0 && this.password.length > 0) {
+        var entidad = {
+          nombreCompleto : this.nombreCompleto,
+          userName : this.userName,
+          password : this.password
+        }
+        console.log(entidad)
+        this.usuariosService.AddUsuario(entidad).subscribe({
+            next: (response: HttpResponse<any>) => {
+                console.log(response.body)//1
+                if(response.body == 1){
+                    alert("Se agrego al Usuario con exito :)");
+                    this.getUsuarios();//Se actualize el listado
+                    this.nombreCompleto = "";
+                    this.userName = "";
+                    this.password = "";
+                }else{
+                    alert("Al agregar al Usuario fallo exito :(");
+                }
+            },
+            error: (error: any) => {
+                console.log(error);
+            },
+            complete: () => {
+                console.log('complete - this.addUsuario()');
+            },
+        });
+    }
+}
 
   public updateUsuario(item){
 

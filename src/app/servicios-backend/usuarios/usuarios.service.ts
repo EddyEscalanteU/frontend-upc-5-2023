@@ -26,4 +26,13 @@ export class UsuariosService {
         .pipe();
   }
 
+  public AddUsuario(entidad): Observable<HttpResponse<any>> {
+
+    return this.http
+        .post<any>(this.URL_ADD_USUARIO, entidad,
+            { observe: 'response' })
+        .pipe();
+}
+
+
 }

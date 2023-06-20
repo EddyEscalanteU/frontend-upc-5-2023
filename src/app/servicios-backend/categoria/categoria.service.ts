@@ -36,6 +36,14 @@ export class CategoriaService {
             .pipe();
     }
 
+    public UpdateCategoria(entidad): Observable<HttpResponse<any>> {
+
+        return this.http
+            .post<any>(this.URL_UPDATE_CATEGORIA, entidad,
+                { observe: 'response' })
+            .pipe();
+    }
+
     public DeleteCategoria(item): Observable<HttpResponse<any>> {
     
         let params = new HttpParams();

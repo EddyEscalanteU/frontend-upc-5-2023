@@ -12,6 +12,8 @@ export class Tab1Page {
 
     public listCategoria = [];
     public nombreCategoria = ""
+    public idCategoria = ""
+    public swGuardarCambios = false
 
     constructor(public navCtrl: NavController,
         private categoriaServices: CategoriaService) {
@@ -22,7 +24,7 @@ export class Tab1Page {
         this.categoriaServices.GetCategoria().subscribe({
             next: (response: HttpResponse<any>) => {
                 this.listCategoria = response.body;
-                console.log(this.listCategoria)
+                //console.log(this.listCategoria)
             },
             error: (error: any) => {
                 console.log(error);
@@ -60,8 +62,41 @@ export class Tab1Page {
         }
     }
 
+    public guardarCambios(){
+        this.swGuardarCambios = false;
+        if (this.nombreCategoria.length > 0) {
+            var entidad = {
+                id: this.idCategoria,
+                nombre : this.nombreCategoria
+            }
+            console.log(entidad)
+            this.categoriaServices.UpdateCategoria(entidad).subscribe({
+                next: (response: HttpResponse<any>) => {
+                    console.log(response.body)//1
+                    if(response.body == 1){
+                        alert("Se modifico la categoria con exito :)");
+                        this.GetCategoria();//Se actualize el listado
+                        this.idCategoria = "";
+                        this.nombreCategoria = "";
+                    }else{
+                        alert("Al modificar la categoria fallo exito :(");
+                    }
+                },
+                error: (error: any) => {
+                    console.log(error);
+                },
+                complete: () => {
+                    console.log('complete - this.guardarCambios()');
+                },
+            });
+        }
+    }
+
     public updateCategoria(item){
         console.log(item)
+        this.idCategoria = item.id
+        this.nombreCategoria = item.nombre
+        this.swGuardarCambios = true;
     }
 
     public deleteCategoria(item){
