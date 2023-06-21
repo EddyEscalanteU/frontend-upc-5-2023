@@ -1,17 +1,31 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      CRUD Productos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content padding>
+  <ion-item>
+      <ion-input type="text" hidden [(ngModel)]="idProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese Nombre" [(ngModel)]="nombreProducto"></ion-input>
+      <ion-input type="text" placeholder="Ingrese ID Categoria" [(ngModel)]="idCategoria"></ion-input>
+      <div class="item-note" item-end>
+          <ion-button *ngIf="!swGuardarCambios" (click)="addProducto()">Agregar Producto</ion-button>
+          <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listProducto">
+              {{item.nombre}}
+              ({{item.categoria.nombre}})
+              <div class="item-note" slot="end">
+                  <ion-button color="warning" (click)="updateProducto(item)">Editar</ion-button>
+                  <ion-button color="danger" (click)="deleteProducto(item)">Eliminar</ion-button>
+              </div>
+          </ion-item>
+      </ion-list>
+  </div>
 </ion-content>

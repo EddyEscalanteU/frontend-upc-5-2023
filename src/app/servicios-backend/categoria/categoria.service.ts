@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CategoriaService {
 
-    URL_BACKEND = "https://localhost";
-    PORT_BACKEND = ":44301";
-
-    PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
+    PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
 
     URL_GET_CATEGORIA = this.PATH_BACKEND + "/api/Categoria"
     URL_GET_BY_ID_CATEGORIA = this.PATH_BACKEND + "/api/Categoria/GetCategoriaById"

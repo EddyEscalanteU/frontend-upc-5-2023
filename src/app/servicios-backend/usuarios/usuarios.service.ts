@@ -1,16 +1,14 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
 
-  URL_BACKEND = "https://localhost";
-  PORT_BACKEND = ":44301";
-
-  PATH_BACKEND = this.URL_BACKEND + this.PORT_BACKEND;
+  PATH_BACKEND = environment.URL_BACKEND + environment.PORT_BACKEND;
 
   URL_GET = this.PATH_BACKEND + "/api/Usuarios"
   URL_GET_BY_ID = this.PATH_BACKEND + "/api/Usuarios/GetById"
