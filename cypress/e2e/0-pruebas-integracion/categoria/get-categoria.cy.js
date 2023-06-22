@@ -15,4 +15,4 @@ describe('Obtener todas las Categorias', () => {
     
         cy.get('ion-item').should('be.visible').should('not.have.length', '0');
       });
-})
+});
