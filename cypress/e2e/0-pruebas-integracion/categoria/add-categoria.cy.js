@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Obtener todas las Categorias', () => {
+describe('Agregar una Categoria', () => {
     beforeEach(() => {
         cy.visit('http://localhost:8100')
       })
