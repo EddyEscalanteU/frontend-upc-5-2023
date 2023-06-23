@@ -12,12 +12,12 @@ describe('Agregar una Categoria', () => {
 
     it('Escribir los input', () => {
         cy.wait(1500);
-    
         cy.get('#nombreCategoria').type('insertar categoria cypress', { delay: 100 }).should('have.value', 'insertar categoria cypress');
-
-        cy.wait(500);
-
-        cy.get('#agregarCategoria').not('[disabled]').click();
         
+      });
+
+      it('Click Guardar', () => {
+        cy.wait(500);
+        cy.get('#agregarCategoria').not('[disabled]').click();
       });
 })
