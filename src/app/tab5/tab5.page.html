@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Carrito Compra</ion-title>
+    <ion-title>CRUD Carrito Compra</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item>
+      <ion-input type="text" hidden [(ngModel)]="id"></ion-input>
+      <ion-input type="text" placeholder="Ingrese idUsuario " [(ngModel)]="idUsuario"></ion-input>
+      <ion-input type="text" placeholder="Ingrese fecha" [(ngModel)]="fecha"></ion-input>
+      
+      <div class="item-note" item-end>
+          <ion-button *ngIf="!swGuardarCambios" (click)="addCarritoCompra()">Agregar carrito compra</ion-button>
+          
+      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-item *ngFor="let item of listCarritoCompra">
+              {{item.idUsuario}}, {{item.fecha}}
+              
+              <div class="item-note" slot="end">
 
+              </div>
+          </ion-item>
+      </ion-list>
+  </div>
 </ion-content>
