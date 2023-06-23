@@ -7,12 +7,12 @@ describe('Obtener todas las Categorias', () => {
 
     it('Abrir la opción de CRUD Categorias', () => {
         cy.get('ion-tab-button').should('be.not.visible');
-        cy.get('ion-tab-button').eq(0).click();
+        cy.get('ion-tab-button').eq(0).click();// El tab de Categoria
     });
 
     it('Existe alguna Categoria', () => {
         cy.wait(1500);
     
-        cy.get('ion-item').should('be.visible').should('not.have.length', '0');
+        cy.get('ion-item').should('be.visible').should('not.have.length', '0');//Verifica que exista un ion-item
       });
 });

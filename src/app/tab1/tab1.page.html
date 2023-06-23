@@ -8,11 +8,11 @@
 
 <ion-content padding>
     <ion-item>
-        <ion-input type="text" hidden [(ngModel)]="idCategoria"></ion-input>
-        <ion-input type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
+        <ion-input id="idCategoria" type="text" hidden [(ngModel)]="idCategoria"></ion-input>
+        <ion-input id="nombreCategoria" type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
         <div class="item-note" item-end>
-            <ion-button *ngIf="!swGuardarCambios" (click)="addCategoria()">Agregar Categoria</ion-button>
-            <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+            <ion-button id="agregarCategoria" *ngIf="!swGuardarCambios" (click)="addCategoria()">Agregar Categoria</ion-button>
+            <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
         </div>
     </ion-item>
     <div padding>
