@@ -10,7 +10,7 @@ describe('Agregar una Categoria', () => {
         cy.get('ion-tab-button').eq(0).click();
     });
 
-    it('Existe alguna Categoria', () => {
+    it('Escribir los input', () => {
         cy.wait(1500);
     
         cy.get('ion-item').should('be.visible').should('not.have.length', '0');
