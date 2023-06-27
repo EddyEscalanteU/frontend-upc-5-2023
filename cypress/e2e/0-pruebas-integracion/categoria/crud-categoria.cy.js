@@ -20,7 +20,7 @@ describe('CRUD Categorias', () => {
     //Servicio API - AddCategoria(entidad)
     it('AddCategoria(entidad)', () => {
         cy.wait(1000);
-        cy.get('#nombreCategoria').type('insertar categoria cypress', { delay: 100 }).should('have.value', 'insertar categoria cypress');
+        cy.get('#nombreCategoria').type('insertar NOMBRE cypress', { delay: 100 }).should('have.value', 'insertar categoria cypress');
         cy.wait(500);
         cy.get('#agregarCategoria').not('[disabled]').click();
     });
@@ -31,7 +31,7 @@ describe('CRUD Categorias', () => {
         cy.get('#updateCategoria').eq(0).click(); //Click al boton de Editar una categoria
         cy.wait(1000);
         cy.get('#nombreCategoria').invoke('val', ''); //Vaciar el campo del textfield de nombreCategoria
-        cy.get('#nombreCategoria').type('UPDATE Cypress', { delay: 100 }); //Escribir "UPDATE Cypress en el textfield de nombreCategoria"
+        cy.get('#nombreCategoria').type('update NOMBRE Cypress', { delay: 100 }); //Escribir "UPDATE Cypress en el textfield de nombreCategoria"
         cy.wait(500);
         cy.get('#guardarCambios').not('[disabled]').click(); //Click en guardar cambios
     });
