@@ -20,8 +20,8 @@
             <ion-item *ngFor="let item of listCategoria">
                 {{item.nombre}}
                 <div class="item-note" slot="end">
-                    <ion-button color="warning" (click)="updateCategoria(item)">Editar</ion-button>
-                    <ion-button color="danger" (click)="deleteCategoria(item)">Eliminar</ion-button>
+                    <ion-button id="updateCategoria" color="warning" (click)="updateCategoria(item)">Editar</ion-button>
+                    <ion-button id="deleteCategoria" color="danger" (click)="deleteCategoria(item)">Eliminar</ion-button>
                 </div>
             </ion-item>
         </ion-list>
