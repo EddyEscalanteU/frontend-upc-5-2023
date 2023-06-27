@@ -1,29 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      CRUD Usuarios
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            CRUD Usuarios
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-      <ion-input type="text" placeholder="Ingrese nombreCompleto" [(ngModel)]="nombreCompleto"></ion-input>
-      <ion-input type="text" placeholder="Ingrese userName" [(ngModel)]="userName"></ion-input>
-      <ion-input type="text" placeholder="Ingrese password" [(ngModel)]="password"></ion-input>
-      <div class="item-note" item-end>
-          <ion-button (click)="addUsuario()">Agregar Usuario</ion-button>
-      </div>
-  </ion-item>
-<div padding>
-    <ion-list>
-        <ion-item *ngFor="let item of listUsuarios">
-            {{item.nombreCompleto}}, {{item.userName}}, {{item.password}}
-            <div class="item-note" slot="end">
-                <ion-button color="warning" (click)="updateUsuario(item)">Editar</ion-button>
-                <ion-button color="danger" (click)="deleteUsuario(item)">Eliminar</ion-button>
-            </div>
-        </ion-item>
-    </ion-list>
-</div>
+    <ion-item>
+        <ion-input id="nombreCompleto" type="text" placeholder="Ingrese nombreCompleto" [(ngModel)]="nombreCompleto"></ion-input>
+        <ion-input id="userName" type="text" placeholder="Ingrese userName" [(ngModel)]="userName"></ion-input>
+        <ion-input id="password" type="text" placeholder="Ingrese password" [(ngModel)]="password"></ion-input>
+        <div class="item-note" item-end>
+            <ion-button id="addUsuario" (click)="addUsuario()">Agregar Usuario</ion-button>
+        </div>
+    </ion-item>
+    <div padding>
+        <ion-list>
+            <ion-item *ngFor="let item of listUsuarios">
+                {{item.nombreCompleto}}, {{item.userName}}, {{item.password}}
+                <div class="item-note" slot="end">
+                    <ion-button id="updateUsuario" color="warning" (click)="updateUsuario(item)">Editar</ion-button>
+                    <ion-button id="deleteUsuario" color="danger" (click)="deleteUsuario(item)">Eliminar</ion-button>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>
