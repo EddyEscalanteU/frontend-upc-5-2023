@@ -19,10 +19,6 @@
         <ion-list>
             <ion-item *ngFor="let item of listUsuarios">
                 {{item.nombreCompleto}}, {{item.userName}}, {{item.password}}
-                <div class="item-note" slot="end">
-                    <ion-button id="updateUsuario" color="warning" (click)="updateUsuario(item)">Editar</ion-button>
-                    <ion-button id="deleteUsuario" color="danger" (click)="deleteUsuario(item)">Eliminar</ion-button>
-                </div>
             </ion-item>
         </ion-list>
     </div>
