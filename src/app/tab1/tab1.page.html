@@ -8,20 +8,20 @@
 
 <ion-content padding>
     <ion-item>
-        <ion-input type="text" hidden [(ngModel)]="idCategoria"></ion-input>
-        <ion-input type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
+        <ion-input id="idCategoria" type="text" hidden [(ngModel)]="idCategoria"></ion-input>
+        <ion-input id="nombreCategoria" type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
         <div class="item-note" item-end>
-            <ion-button *ngIf="!swGuardarCambios" (click)="addCategoria()">Agregar Categoria</ion-button>
-            <ion-button *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+            <ion-button id="agregarCategoria" *ngIf="!swGuardarCambios" (click)="addCategoria()">Agregar Categoria</ion-button>
+            <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
         </div>
     </ion-item>
     <div padding>
         <ion-list>
             <ion-item *ngFor="let item of listCategoria">
-                {{item.nombre}}
+                {{item.id}} - {{item.nombre}}
                 <div class="item-note" slot="end">
-                    <ion-button color="warning" (click)="updateCategoria(item)">Editar</ion-button>
-                    <ion-button color="danger" (click)="deleteCategoria(item)">Eliminar</ion-button>
+                    <ion-button id="updateCategoria" color="warning" (click)="updateCategoria(item)">Editar</ion-button>
+                    <ion-button id="deleteCategoria" color="danger" (click)="deleteCategoria(item)">Eliminar</ion-button>
                 </div>
             </ion-item>
         </ion-list>

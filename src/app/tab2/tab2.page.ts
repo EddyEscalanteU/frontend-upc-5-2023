@@ -65,12 +65,4 @@ public listUsuarios = [];
     }
 }
 
-  public updateUsuario(item){
-
-  }
-
-  public deleteUsuario(item){
-    
-  }
-
 }
