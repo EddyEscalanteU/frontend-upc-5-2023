@@ -30,7 +30,7 @@ export class Tab1Page {
                 console.log(error);
             },
             complete: () => {
-                console.log('complete - this.GetCategoria()');
+                //console.log('complete - this.GetCategoria()');
             },
         });
     }

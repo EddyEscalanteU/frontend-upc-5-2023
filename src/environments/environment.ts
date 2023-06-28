@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  URL_BACKEND: "https://localhost",
-  PORT_BACKEND: ":44301"
+  URL_BACKEND: "http://localhost",
+  PORT_BACKEND: ":5000"
 };
 
 

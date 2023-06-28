@@ -10,7 +10,7 @@
     <ion-item>
         <ion-input id="idProducto" type="text" hidden [(ngModel)]="idProducto"></ion-input>
         <ion-input id="nombreProducto" type="text" placeholder="Ingrese Nombre" [(ngModel)]="nombreProducto"></ion-input>
-        <ion-input id="idCategoria" type="text" placeholder="Ingrese ID Categoria" [(ngModel)]="idCategoria"></ion-input>
+        <ion-input id="idCategoriaProducto" type="text" placeholder="Ingrese ID Categoria" [(ngModel)]="idCategoria"></ion-input>
         <div class="item-note" item-end>
             <ion-button id="addProducto" *ngIf="!swGuardarCambios" (click)="addProducto()">Agregar Producto</ion-button>
             <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
@@ -19,7 +19,7 @@
     <div padding>
         <ion-list>
             <ion-item *ngFor="let item of listProducto">
-                {{item.nombre}} ({{item.categoria.nombre}})
+                {{item.id}} - {{item.nombre}} - id_categoria ({{item.idCategoria}} / {{item.categoria.nombre}})
                 <div class="item-note" slot="end">
                     <ion-button id="updateProducto" color="warning" (click)="updateProducto(item)">Editar</ion-button>
                     <ion-button id="deleteProducto" color="danger" (click)="deleteProducto(item)">Eliminar</ion-button>

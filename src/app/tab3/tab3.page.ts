@@ -23,7 +23,7 @@ export class Tab3Page {
     this.productosService.GetProductos().subscribe({
         next: (response: HttpResponse<any>) => {
             this.listProducto = response.body;
-            //console.log(this.listProducto)
+            console.log(this.listProducto)
         },
         error: (error: any) => {
             console.log(error);
